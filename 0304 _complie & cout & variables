@@ -89,10 +89,6 @@ True/False : 0 = False. Any numbers except 0 = True.
 |  short |     2bytes     |     integer     | -32768 ~ 32767
 |   int  |     4bytes     |     integer     | -2 billion xxx ~ 2 billion xxx (2^32)
 | __int  |     8bytes     |     integer     | countless. 
-
-*bool : 몬스터가 해야 할 일, 하지 말아야 할 일 다 따져서 정해줘야함 
-*__int : (오래된 게임 같은 경우 유저들이 돈 21억 이상으로 모았을 때 등에 사용. 
-         주로 10억 이상의 값을 표현할 때 사용
          
 decimal point(float, double)
 | float  |    4bytes   |  floating point | hundredthousandths
