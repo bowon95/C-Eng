@@ -51,74 +51,61 @@ std::cout << "Write any texts here, then they'll be printed out.";
 printf("Printing using printf.\n";
 
 /* 
-; is a point. 한 줄이 끝났을 경우 붙여준다. 
-코드는 위에서 아래로 실행된다.
-보통 오른쪽에서 왼쪽으로 동작이 된다.
-ex. std::cout << "첫 번째 출력" ; : 첫 번째 출력을 cout 해라.
-    std::cout << "첫 번째 출력" << "두 번째 출력" : 첫 번째 출력과 두 번째 출력을 cout 해라. 
-\n : 한 줄 띄우기. = endl; 
+; is a point. Put this when a code line ends.  
+A code will be executed from upper line to down one.
+Also, it normally works from right side to left side.
+
+\n : Inserting a new line. = endl; 
 std::cout << std::endl; = std::cout << "\n"; 
- cf. \n 자체를 출력: \\n. 따옴표, 역슬러쉬 같은 종류의 특수문자 출력은 앞에 \붙이기.
-\t : tab. (잘 사용 안 함.)
 
 /*
-컴퓨터 기본 이론***
+Basic knowledge of Computer.***
 
-프로그램이 동작될 때 필요한 데이터들은 메모리에 저장이 된다.
-메모리 : 주기억 장치
-하드디스크 또는  ssd : 보조기억장치
+When the program is executed, the data is saved in the computer memory.
+computer memory : primary(= main memory)
+HDD or SSD : secondary memory(= auxiliary memory)
 
-주기억장치 : 휘발성. 프로그램이 종료되면 저장하고 있던 데이터가 사라짐.
-보조기억장치 : 비휘발성(=반영구적). 반영구적으로 저장이 가능.
+primary memory : primary memory holds the data on which the computer is currently working. 
+                 The data will be lost when power is switched off.
+secondary memory : Data is permanently stored even if power is switched off.
 
-용량의 최소 단위는 bit 이다. ***
-1byte : 8bit
-1kbyte : 1024byte
-1mbyte : 1024kbyte
-1gbyte : 1024mbyte
-1tbyte : 1024gbyte
+'bit' is smallest unit of storage. ***
+1byte : 8bits
+1kbyte : 1024bytes
+1mbyte : 1024kbytes
+1gbyte : 1024mbytes
+1tbyte : 1024gbytes
 
-1bit : 0, 1 둘 중 하나의 값을 저장.
-1byte는 256 (2^8)가지의 값을 표현할 수 있다.
+1bit : can take a value of 0,1.
+1byte can handle up to 256 (2^8).
 
-C++에서 데이터를 저장하기 위한 수단 : 변수
+In C++ you can save the data using variables. 
 
-참/거짓은 0은 거짓. 0이 아닌 모든 수는 참.
+True/False : 0 = False. Any numbers except 0 = True.
 
-문자를 저장할 때는 일반 숫자로 저장하고 
-출력할 때는 아스키 코드표를 참조해서 값에 해당하는 문자를 출력.
-문자도 일반 값으로 저장이 되고 출력할 때만 아스키 코드표에 해당하는 문자를 출력.
-
-|  타입  | 메모리 크기 |   표현 종류  | 값의 표현 범위
-|  bool  |    1byte   | 참(1)/거짓(0)| true/false 
-|  char  |    1byte   |     문자     | -128 ~ 127 (0 포함)
-|  short |    2byte   |     정수     | -32768 ~ 32767
-|   int  |    4byte   |     정수     | -21억xxx ~ 21억xxx (2^32)
-| __int  |    8byte   |     정수     | 천문학적인 값. 
+|  Type  | Sizes in bytes |  Interpretation | Possible Values
+|  bool  |     1byte      | True(1)/False(0)| true/false 
+|  char  |     1bytes     |    character    | -128 ~ 127 (including 0)
+|  short |     2bytes     |     integer     | -32768 ~ 32767
+|   int  |     4bytes     |     integer     | -2 billion xxx ~ 2 billion xxx (2^32)
+| __int  |     8bytes     |     integer     | countless. 
 
 *bool : 몬스터가 해야 할 일, 하지 말아야 할 일 다 따져서 정해줘야함 
 *__int : (오래된 게임 같은 경우 유저들이 돈 21억 이상으로 모았을 때 등에 사용. 
          주로 10억 이상의 값을 표현할 때 사용
          
-소숫점 단위 표현(float, double)
-| float  |    4byte   |  부동소수점(=소수점 자리가 움직일 수 있음) | 소수점 5자리까지
-| double |    8byte   |  부동소수점 
-
-*float : 게임쪽에서 double 말고 float를 주로 사용. 
-         소수점이 6자리 이상이면 6번째 소수점이 반올림되어 최종적으로 5자리로 표시됨. 
-*double : 정밀한 소수점까지 요하는 시뮬이나 증권가에서 사용. 게임쪽에서 거의 사용 X.
-*/
-
-// FLT_MIN : F12키를 이용해 코드의 구현 부분으로 이동 가능. FLT_MIN 은 이미 있는 명령어. 참고용.
+decimal point(float, double)
+| float  |    4bytes   |  floating point | hundredthousandths
+| double |    8bytes   |  floating point 
 
 std::cout << 3.141597f << std::endl;
 /* 
-3.141597f : 실수 뒤에 f 붙여주면 float 타입의 실수.
-3.141597  : 실수 뒤에 아무것도 없으면 double 타입의 실수.
+3.141597f : 'real number + f' means float type of real number.
+3.141597  : 'without f' means double type of real number.
 
-int PlayerHP; // 나 지금 메모리 4byte 쓸거야.
-PlayerHP = 100; // = 는 대입 연산자. 오른쪽의 값을 왼쪽의 변수에 넣어준다.
-std::cout << PlayerHP << std::endl; //cout에 변수를 넣어주면 해당하는 "값"을 출력함.
+int PlayerHP; // I'm gonna use 4 bytes of memory.
+PlayerHP = 100; // = is an assignment operator. Assign a right side of the value to the left.
+std::cout << PlayerHP << std::endl; //If you assign any variables to cout, it will print out the 'value' of it.
 
 return 0;
 
